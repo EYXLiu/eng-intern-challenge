@@ -1,7 +1,7 @@
 import sys
 
 braille_letters = {
-    'a': 'O.....', 'b': 'O.O...', 'c': 'OO....', 'd': 'OO.O..', 'e': 'O..O..', 'f': 'OOO...', 'g': 'OOOO..', 'h': 'O.OO..', 'i': '.OO...', 'j': '.OOO..', 'k': 'O...O.', 'l': 'O.O.O.', 'm': 'OO..O.', 'n': 'OO.OO.', 'o': 'O..OO.', 'p': 'OOO.O.', 'q': 'OOOOO.', 'r': 'O.OOO.', 's': '.OO.O.', 't': '.OOOO.', 'u': 'O...OO', 'v': 'O.O.OO', 'w': '.OOO.O', 'x': 'OO..OO', 'y': 'OO.OOO', 'z': 'O..OOO', ' ': '......'
+    'a': 'O.....', 'b': 'O.O...', 'c': 'OO....', 'd': 'OO.O..', 'e': 'O..O..', 'f': 'OOO...', 'g': 'OOOO..', 'h': 'O.OO..', 'i': '.OO...', 'j': '.OOO..', 'k': 'O...O.', 'l': 'O.O.O.', 'm': 'OO..O.', 'n': 'OO.OO.', 'o': 'O..OO.', 'p': 'OOO.O.', 'q': 'OOOOO.', 'r': 'O.OOO.', 's': '.OO.O.', 't': '.OOOO.', 'u': 'O...OO', 'v': 'O.O.OO', 'w': '.OOO.O', 'x': 'OO..OO', 'y': 'OO.OOO', 'z': 'O..OOO'
 }
 english_letters = {value: key for key, value in braille_letters.items()}
 
@@ -33,7 +33,7 @@ def toEnglish(word):
         if next_capital:
             english_word += english_letters[i].capitalize()
             next_capital = False
-        elif i == braille_letters[' ']:
+        elif i == space:
             if next_number:
                 next_number = False
             english_word += ' '
@@ -61,7 +61,7 @@ def toBraille(word):
             braille_word += braille_numbers[char]
         elif char == ' ':
             next_number = False
-            braille_word += braille_letters[char]
+            braille_word += space
         else: 
             braille_word+= braille_letters[char]
     return braille_word
